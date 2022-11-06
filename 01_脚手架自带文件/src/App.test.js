@@ -1,3 +1,4 @@
+// 用于给app做测试
 import { render, screen } from '@testing-library/react';
 import App from './App';
 

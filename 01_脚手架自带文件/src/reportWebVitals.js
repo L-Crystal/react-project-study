@@ -11,3 +11,4 @@ const reportWebVitals = onPerfEntry => {
 };
 
 export default reportWebVitals;
+// 页面性能分析文件（需要web-vitals库的支持）
