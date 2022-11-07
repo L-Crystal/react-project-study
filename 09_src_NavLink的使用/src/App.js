@@ -1,10 +1,10 @@
 // 创建“外壳”组件App
 import React, { Component } from "react"; //多种export
-import { Route, Switch } from "react-router-dom";
-import Home from "./pages/Home"; //Home是路由组件
+import { NavLink, Route } from "react-router-dom";
+import Home from "./pages/Home";  //Home是路由组件
 import About from "./pages/About"; //About是路由组件
 import Header from "./components/Header"; //Header是一般组件
-import MyNavLink from "./components/MyNavLink";
+
 class App extends Component {
   render() {
     return (
@@ -18,19 +18,29 @@ class App extends Component {
         <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
+              {/* 原生html中靠<a>跳转不同的页面 */}
+              {/* <a className="list-group-item" href="./about.html">
+                About
+              </a>
+              <a className="list-group-item active" href="./home.html">
+                Home
+              </a> */}
               {/* 在react中靠路由链接实现切换组件 ---编写路由链接*/}
-              <MyNavLink to="/crystal/about">About</MyNavLink>
-              <MyNavLink to="/crystal/home">Home</MyNavLink>
+
+              <NavLink activeClassName="highLight" className="list-group-item"  to="/about">
+                About
+              </NavLink>
+              <NavLink activeClassName="highLight" className="list-group-item" to="/home">
+                Home
+              </NavLink>
             </div>
           </div>
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
                 {/* 注册路由 */}
-                <Switch>
-                  <Route path="/crystal/about" component={About} />
-                  <Route path="/crystal/home" component={Home} />
-                </Switch>
+                <Route path="/about" component={About} />
+                <Route path="/home" component={Home} />
               </div>
             </div>
           </div>
