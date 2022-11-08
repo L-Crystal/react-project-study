@@ -19,8 +19,8 @@ class App extends Component {
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
               {/* 在react中靠路由链接实现切换组件 ---编写路由链接*/}
-              <MyNavLink replace to="/about">About</MyNavLink>
-              <MyNavLink replace to="/home">Home</MyNavLink>
+              <MyNavLink to="/about">About</MyNavLink>
+              <MyNavLink to="/home/b">Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -28,8 +28,9 @@ class App extends Component {
               <div className="panel-body">
                 {/* 注册路由 */}
                 <Switch>
-                  <Route path="/about" component={About} />
-                  <Route path="/home" component={Home} />
+                  {/* 开启精准匹配 */}
+                  <Route exact={true} path="/about" component={About} />
+                  <Route exact path="/home" component={Home} />
                 </Switch>
               </div>
             </div>

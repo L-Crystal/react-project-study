@@ -1,6 +1,6 @@
 // 创建“外壳”组件App
 import React, { Component } from "react"; //多种export
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home"; //Home是路由组件
 import About from "./pages/About"; //About是路由组件
 import Header from "./components/Header"; //Header是一般组件
@@ -19,8 +19,8 @@ class App extends Component {
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
               {/* 在react中靠路由链接实现切换组件 ---编写路由链接*/}
-              <MyNavLink replace to="/about">About</MyNavLink>
-              <MyNavLink replace to="/home">Home</MyNavLink>
+              <MyNavLink to="/about">About</MyNavLink>
+              <MyNavLink to="/home">Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -30,6 +30,9 @@ class App extends Component {
                 <Switch>
                   <Route path="/about" component={About} />
                   <Route path="/home" component={Home} />
+                  <Redirect to="/about"/>
+                  {/* react6.0之后的写法 */}
+                  {/* <Route index element={<Navigate to="about"/>} /> */} 
                 </Switch>
               </div>
             </div>
